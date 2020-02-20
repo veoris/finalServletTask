@@ -8,7 +8,9 @@
 
 <w:wrapper>
     <div class="col-lg-12 text-left">
-        <h1 class="uname"><c:out value="${sessionScope.user.login}"/></h1>
+        <h1 class="uname">
+            <c:out value="${sessionScope.user.login}"/>
+        </h1>
         <c:if test="${sessionScope.isAdmin == true}">
             <h1>
                 <a href="${pageContext.request.contextPath}/app/admin">

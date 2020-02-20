@@ -4,7 +4,7 @@
 <fmt:setBundle basename="${bundle}"/>
 <div class="myheader">
     <div class="row">
-        <a href="${pageContext.request.contextPath}/app/main" class="col-lg-2 logo">Calories</a>
+        <a href="${pageContext.request.contextPath}/app/main" class="col-lg-2 logo">Game</a>
         <a href="${pageContext.request.contextPath}/app/userpage" class="col-lg-2"><fmt:message key="user.profile"/></a>
         <a href="${pageContext.request.contextPath}/app/logout" class="col-lg-2 offset-4"><fmt:message
                 key="logout"/></a>

@@ -7,6 +7,7 @@ public interface PageRoutes {
     String MAIN = "/main";
     String USER_PAGE = "/userpage";
     String LOGIN = "/login";
+    String AUTH = "/auth";
     String REGISTRATION = "/registration";
     String ADMIN = "/admin";
     String LOGOUT = "/logout";

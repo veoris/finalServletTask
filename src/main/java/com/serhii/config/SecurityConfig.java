@@ -19,26 +19,28 @@ public class SecurityConfig {
         securedPages.put(Role.GUEST, Arrays.asList(
                 PageRoutes.MAIN,
                 PageRoutes.LOGIN,
+                PageRoutes.AUTH,
                 PageRoutes.REGISTRATION,
-                PageRoutes.REGISTER,
-                PageRoutes.ADD_QUESTION,//TODO
-                PageRoutes.GAME,
-                PageRoutes.QUESTION,
-                PageRoutes.ANSWER,
-                PageRoutes.CONFIRM,
-                PageRoutes.RIGHT,
-                PageRoutes.WRONG
+                PageRoutes.REGISTER
+
         ));
         securedPages.put(Role.USER, Arrays.asList(
                 PageRoutes.MAIN,
                 PageRoutes.USER_PAGE,
                 PageRoutes.LOGOUT,
-                PageRoutes.ADD_QUESTION
+
+                PageRoutes.GAME,
+                PageRoutes.QUESTION,
+                PageRoutes.ANSWER
 
         ));
 
         securedPages.put(Role.ADMIN, Arrays.asList(
-                PageRoutes.ADMIN
+                PageRoutes.ADMIN,
+                PageRoutes.ADD_QUESTION,
+                PageRoutes.CONFIRM,
+                PageRoutes.RIGHT,
+                PageRoutes.WRONG
 
         ));
     }

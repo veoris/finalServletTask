@@ -21,11 +21,9 @@ public class RightCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request) {
-        try {
-            gameService.increaseTeamScore(106);
-        } catch (RuntimeException e) {
-            return JSPRoutes.MAIN;
-        }
+
+            gameService.increaseTeamScore(106);//TODO
+
         return PageRoutes.REDIRECT + request.getServletPath() + PageRoutes.MAIN;
     }
 

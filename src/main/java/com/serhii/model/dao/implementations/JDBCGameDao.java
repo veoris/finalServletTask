@@ -46,6 +46,7 @@ public class JDBCGameDao implements GameDao {
             ps.setLong(2,questionId);
             ps.setLong(3, id);
             ps.executeUpdate();
+            logger.info("Set current answer and question id" + answer + questionId +id);
         }catch (SQLException e){
             logger.error("Occurred SQLException", e);
             throw new RuntimeException(e);
@@ -84,6 +85,23 @@ public class JDBCGameDao implements GameDao {
             logger.error("Occurred SQLException", e);
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public int getLastGameId(String login) {
+        Mapper<Game> gameMapper = new GameMapper();
+        Game found = new Game();
+        try (PreparedStatement ps = connection.prepareStatement(GameSQL.GET_LAST_GAME_ID)) {
+            ps.setString(1, login);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                found = gameMapper.getEntity(rs);
+            }
+        } catch (SQLException e) {
+            logger.error("SQLException occurred", e);
+            throw new RuntimeException(e);
+        }
+        return found.getId();
     }
 
     @Override

@@ -15,7 +15,7 @@
             <span class="col-lg-3"><fmt:message key="question.answer"/></span>
             <div class="col-lg-9">
                 <input type="text" name="answer" value="${param.answer}" required>
-                <input type="number" hidden="true" name="id" value="${requestScope.id}" required>
+                <input type="number"  name="id" value="${requestScope.id}" required>
                 <input type="number" hidden="true" name="questionId" value="${requestScope.question.id}" required>
             </div>
         </label>

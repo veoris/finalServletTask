@@ -56,4 +56,10 @@ public class GameService {
         }
     }
 
+    public int getLastGameId(String login){
+        try(GameDao dao = daoFactory.createGameDao()) {
+            return dao.getLastGameId(login);
+        }
+    }
+
 }

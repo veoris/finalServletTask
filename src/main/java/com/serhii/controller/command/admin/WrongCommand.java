@@ -1,10 +1,8 @@
 package com.serhii.controller.command.admin;
 
 import com.serhii.controller.command.Command;
-import com.serhii.controller.routes.JSPRoutes;
 import com.serhii.controller.routes.PageRoutes;
 import com.serhii.service.GameService;
-
 import javax.servlet.http.HttpServletRequest;
 
 public class WrongCommand implements Command {
@@ -19,11 +17,9 @@ public class WrongCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request) {
-        try {
-            gameService.increaseViewerScore(106);
-        } catch (RuntimeException e) {
-            return JSPRoutes.MAIN;
-        }
+
+            gameService.increaseViewerScore(106);//TODO
+
         return PageRoutes.REDIRECT + request.getServletPath() + PageRoutes.MAIN;
     }
 

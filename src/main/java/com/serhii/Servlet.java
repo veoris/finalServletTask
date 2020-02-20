@@ -7,6 +7,7 @@ import com.serhii.controller.command.user.LogOutCommand;
 import com.serhii.controller.routes.PageRoutes;
 import com.serhii.service.GameService;
 import com.serhii.service.QuestionService;
+import com.serhii.service.UserService;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletConfig;
@@ -45,7 +46,7 @@ public class Servlet extends javax.servlet.http.HttpServlet {
         commands.put("addquestion",
                 new NewQuestionCommand(new QuestionService()));
         commands.put("game",
-                new GameCommand(new QuestionService(), new GameService()));
+                new GameCommand(new QuestionService(), new GameService(), new UserService()));
         commands.put("answer",
                 new AnswerCommand(new GameService()));
         commands.put("confirm",
