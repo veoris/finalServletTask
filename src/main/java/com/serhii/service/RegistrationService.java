@@ -16,7 +16,6 @@ public class RegistrationService {
 
     private final static Logger logger = Logger.getLogger(RegistrationService.class);
 
-
     private boolean isLoginCorrect(String login) {
         return login.matches(LOGINREGEX);
     }

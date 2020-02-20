@@ -1,6 +1,5 @@
 package com.serhii.controller.filter;
 
-
 import com.serhii.controller.routes.PageRoutes;
 import com.serhii.model.entity.Role;
 import com.serhii.model.entity.User;
@@ -16,13 +15,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Optional;
 
-
 public class AuthFilter implements Filter {
     private final static Logger logger = Logger.getLogger(AuthFilter.class);
 
     @Override
     public void init(FilterConfig filterConfig) {
-
     }
 
     @Override
@@ -46,6 +43,5 @@ public class AuthFilter implements Filter {
 
     @Override
     public void destroy() {
-
     }
 }

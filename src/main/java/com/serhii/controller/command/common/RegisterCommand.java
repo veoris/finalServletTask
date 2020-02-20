@@ -14,7 +14,6 @@ import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 
-
 public class RegisterCommand implements Command {
     private final String NOT_UNIQUE_LOGIN = "?notUniqueLogin=true";
     private final String UNACCAPTABLE_DATA = "?unacceptableData=true";

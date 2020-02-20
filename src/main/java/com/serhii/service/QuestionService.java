@@ -5,11 +5,9 @@ import com.serhii.model.dao.interfaces.QuestionDao;
 import com.serhii.model.entity.Question;
 import org.apache.log4j.Logger;
 
-
 public class QuestionService {
     private final static Logger logger = Logger.getLogger(QuestionService.class);
     private DaoFactory daoFactory = DaoFactory.getInstance();
-
 
     public Question findForGame() {
         try (QuestionDao dao = daoFactory.createQuestionDao()) {

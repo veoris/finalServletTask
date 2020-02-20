@@ -8,7 +8,6 @@ import com.serhii.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 
-
 public class GameCommand implements Command {
 
     private QuestionService questionService;

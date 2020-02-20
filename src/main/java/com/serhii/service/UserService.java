@@ -8,7 +8,6 @@ import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 
-
 public class UserService {
     private final static Logger logger = Logger.getLogger(UserService.class);
     private final String USER = "user";
@@ -27,7 +26,6 @@ public class UserService {
             return dao.findUserByLoginAndPassword(user);
         }
     }
-
 
     public User getCurrentUser(HttpServletRequest request) {
         logger.debug("Getting current user");

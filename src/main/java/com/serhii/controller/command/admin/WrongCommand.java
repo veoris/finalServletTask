@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 
 public class WrongCommand implements Command {
 
-
     private UserService userService;
     private GameService gameService;
 
@@ -20,11 +19,7 @@ public class WrongCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request) {
-
         gameService.increaseViewerScore(gameService.getLastGameId(userService.getCurrentUser(request).getLogin()));
-
         return PageRoutes.REDIRECT + request.getServletPath() + PageRoutes.MAIN;
     }
-
-
 }

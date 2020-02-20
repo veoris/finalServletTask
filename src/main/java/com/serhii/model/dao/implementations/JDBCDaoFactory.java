@@ -35,7 +35,6 @@ public class JDBCDaoFactory extends DaoFactory {
         return new JDBCTeamDao(getConnection());
     }
 
-
     private Connection getConnection() {
         try {
             logger.debug("Getting connection to DB");

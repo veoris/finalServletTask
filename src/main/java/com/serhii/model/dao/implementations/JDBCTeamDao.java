@@ -1,12 +1,9 @@
 package com.serhii.model.dao.implementations;
 
-import com.serhii.model.dao.implementations.queries.QuestionSQL;
 import com.serhii.model.dao.implementations.queries.TeamSQL;
 import com.serhii.model.dao.interfaces.TeamDao;
 import com.serhii.model.dao.mapper.Mapper;
-import com.serhii.model.dao.mapper.implementations.QuestionMapper;
 import com.serhii.model.dao.mapper.implementations.TeamMapper;
-import com.serhii.model.entity.Question;
 import com.serhii.model.entity.Team;
 import org.apache.log4j.Logger;
 
@@ -25,7 +22,6 @@ public class JDBCTeamDao implements TeamDao {
     public JDBCTeamDao(Connection connection) {
         this.connection = connection;
     }
-
 
     @Override
     public void create(Team entity) {
@@ -51,7 +47,7 @@ public class JDBCTeamDao implements TeamDao {
         Mapper<Team> mapper = new TeamMapper();
         List<Team> teams = new ArrayList<>();
         try (PreparedStatement ps = connection.prepareStatement(TeamSQL.FIND_ALL)) {
-            logger.debug("Executing SQL query:" +TeamSQL.FIND_ALL);
+            logger.debug("Executing SQL query:" + TeamSQL.FIND_ALL);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 teams.add(mapper.getEntity(rs));

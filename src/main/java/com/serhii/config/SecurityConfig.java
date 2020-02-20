@@ -22,17 +22,13 @@ public class SecurityConfig {
                 PageRoutes.AUTH,
                 PageRoutes.REGISTRATION,
                 PageRoutes.REGISTER
-
         ));
         securedPages.put(Role.USER, Arrays.asList(
                 PageRoutes.MAIN,
                 PageRoutes.USER_PAGE,
                 PageRoutes.LOGOUT,
-
                 PageRoutes.GAME,
-                PageRoutes.QUESTION,
                 PageRoutes.ANSWER
-
         ));
 
         securedPages.put(Role.ADMIN, Arrays.asList(
@@ -40,16 +36,15 @@ public class SecurityConfig {
                 PageRoutes.USER_PAGE,
                 PageRoutes.LOGOUT,
                 PageRoutes.ADMIN,
+                PageRoutes.QUESTION,
                 PageRoutes.ADD_QUESTION,
                 PageRoutes.CONFIRM,
                 PageRoutes.RIGHT,
                 PageRoutes.WRONG
-
         ));
     }
 
     public static List<String> getSecuredPagesForRole(Role role) {
         return securedPages.get(role);
     }
-
 }

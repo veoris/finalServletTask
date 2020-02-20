@@ -30,7 +30,6 @@ public class CheckUserDTO {
         this.password = password;
     }
 
-
     @Override
     public String toString() {
         return "CheckUserDTO{" +

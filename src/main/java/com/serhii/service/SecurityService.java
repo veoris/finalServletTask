@@ -7,7 +7,6 @@ import com.serhii.model.entity.User;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
-
 public class SecurityService {
     public static boolean hasPermission(HttpServletRequest request, User user) {
         return user.getRoles().stream()

@@ -18,24 +18,12 @@ public class GameService {
         }
     }
 
-    public Game findByID(int id) {
-        try (GameDao dao = daoFactory.createGameDao()) {
-            return dao.findById(id);
-        }
-    }
-
     public Game findGameByID(int id) {
         try (GameDao dao = daoFactory.createGameDao()) {
             return dao.findGameById((long) id);
         }
     }
 
-    public void saveGame(Game game) {
-        try (GameDao dao = daoFactory.createGameDao()) {
-            dao.create(game);
-        }
-        logger.debug("Saved new game " + game);
-    }
 
     public void setAnswer(String answer, Long gameId, Long questionId) {
         try (GameDao dao = daoFactory.createGameDao()) {

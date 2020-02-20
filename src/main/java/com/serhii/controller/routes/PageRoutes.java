@@ -10,7 +10,6 @@ public interface PageRoutes {
     String ADMIN = "/admin";
     String LOGOUT = "/logout";
     String REGISTER = "/register";
-    String ADD_GAME = "/create";
     String ADD_QUESTION = "/addquestion";
     String QUESTION = "/question";
     String GAME = "/game";

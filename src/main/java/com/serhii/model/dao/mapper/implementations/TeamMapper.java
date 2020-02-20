@@ -14,6 +14,5 @@ public class TeamMapper implements Mapper<Team> {
                 .id(resultSet.getLong(TeamFields.ID))
                 .name(resultSet.getString(TeamFields.NAME))
                 .build();
-
     }
 }

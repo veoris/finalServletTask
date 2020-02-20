@@ -3,12 +3,11 @@ package com.serhii.model.dao.implementations.queries;
 import com.serhii.model.dao.implementations.queries.fieldsdb.UserFields;
 import com.serhii.model.dao.implementations.queries.fieldsdb.UserRolesFields;
 
-
 public interface UserSQL {
     String SAVE = "INSERT INTO `"
             + UserFields.TABLE_NAME + "`(`"
             + UserFields.LOGIN + "`, `"
-            + UserFields.PASSWORD +"`, `"
+            + UserFields.PASSWORD + "`, `"
             + UserFields.TEAM_ID
             + "`) VALUES ((?), (?), (?))";
 

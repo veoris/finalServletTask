@@ -20,7 +20,6 @@ public class JDBCQuestionDao implements QuestionDao {
         this.connection = connection;
     }
 
-
     @Override
     public void create(Question entity) {
         try (PreparedStatement ps = connection.prepareStatement(QuestionSQL.SAVE, Statement.RETURN_GENERATED_KEYS)) {

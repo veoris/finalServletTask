@@ -90,7 +90,7 @@ public class User {
             return this;
         }
 
-        public Builder teamId(int teamId){
+        public Builder teamId(int teamId) {
             User.this.teamId = teamId;
             return this;
         }

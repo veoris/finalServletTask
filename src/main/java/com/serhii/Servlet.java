@@ -20,7 +20,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
-
 public class Servlet extends javax.servlet.http.HttpServlet {
     private Map<String, Command> commands = new HashMap<>();
     private final Logger logger = Logger.getLogger(Servlet.class);
@@ -56,8 +55,6 @@ public class Servlet extends javax.servlet.http.HttpServlet {
                 new RightCommand(new GameService(), new UserService()));
         commands.put("wrong",
                 new WrongCommand(new GameService(), new UserService()));
-
-
     }
 
     public void doGet(HttpServletRequest request,
@@ -85,5 +82,4 @@ public class Servlet extends javax.servlet.http.HttpServlet {
             request.getRequestDispatcher(request.getContextPath() + page).forward(request, response);
         }
     }
-
 }

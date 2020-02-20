@@ -22,7 +22,6 @@ public class NewQuestionCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request) {
-
         questionService.save(Question.builder()
                 .title(request.getParameter(TITLE))
                 .description(request.getParameter(DESCRIPTION))

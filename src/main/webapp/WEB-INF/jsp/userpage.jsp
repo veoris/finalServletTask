@@ -11,13 +11,7 @@
         <h1 class="uname">
             <c:out value="${sessionScope.user.login}"/>
         </h1>
-        <c:if test="${sessionScope.user.login.equals('admin') }">
-            <h1>
-                <a href="${pageContext.request.contextPath}/app/admin">
-                    <fmt:message key="admin.page"/>
-                </a>
-            </h1>
-        </c:if>
+
     </div>
 
 

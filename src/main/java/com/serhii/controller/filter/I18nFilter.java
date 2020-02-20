@@ -1,6 +1,5 @@
 package com.serhii.controller.filter;
 
-
 import org.apache.log4j.Logger;
 
 import javax.servlet.*;
@@ -37,6 +36,5 @@ public class I18nFilter implements Filter {
 
     @Override
     public void destroy() {
-
     }
 }
