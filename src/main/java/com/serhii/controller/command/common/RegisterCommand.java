@@ -28,6 +28,7 @@ public class RegisterCommand implements Command {
         CheckUserDTO userDTO = new CheckUserDTO();
         userDTO.setLogin(request.getParameter("login"));
         userDTO.setPassword(request.getParameter("password"));
+        userDTO.setTeamId(Integer.parseInt(request.getParameter("teamId")));
         logger.info("Trying to register user " + userDTO);
         RegistrationUserDTO validUser;
         try {
@@ -44,6 +45,7 @@ public class RegisterCommand implements Command {
             userService.saveNewUser(User.builder()
                     .login(validUser.getLogin())
                     .password(validUser.getPassword())
+                    .teamId(userDTO.getTeamId())
                     .build());
         } catch (NotUniqueLoginException e) {
             logger.info("User try to register occupied login: " + e.getLoginData());

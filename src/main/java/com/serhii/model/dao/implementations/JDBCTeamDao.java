@@ -1,9 +1,12 @@
 package com.serhii.model.dao.implementations;
 
+import com.serhii.model.dao.implementations.queries.QuestionSQL;
 import com.serhii.model.dao.implementations.queries.TeamSQL;
 import com.serhii.model.dao.interfaces.TeamDao;
 import com.serhii.model.dao.mapper.Mapper;
+import com.serhii.model.dao.mapper.implementations.QuestionMapper;
 import com.serhii.model.dao.mapper.implementations.TeamMapper;
+import com.serhii.model.entity.Question;
 import com.serhii.model.entity.Team;
 import org.apache.log4j.Logger;
 
@@ -11,6 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class JDBCTeamDao implements TeamDao {
@@ -22,21 +26,6 @@ public class JDBCTeamDao implements TeamDao {
         this.connection = connection;
     }
 
-    @Override
-    public Team findGameById(Long id) {
-        Mapper<Team> teamMapper = new TeamMapper();
-        Team found = new Team();
-        try (PreparedStatement ps = connection.prepareStatement(TeamSQL.FIND_BY_ID)) {
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                found = teamMapper.getEntity(rs);
-            }
-        } catch (SQLException e) {
-            logger.error("SQLException occurred", e);
-            throw new RuntimeException(e);
-        }
-        return found;
-    }
 
     @Override
     public void create(Team entity) {
@@ -59,7 +48,19 @@ public class JDBCTeamDao implements TeamDao {
 
     @Override
     public List<Team> findAll() {
-        throw new UnsupportedOperationException();
+        Mapper<Team> mapper = new TeamMapper();
+        List<Team> teams = new ArrayList<>();
+        try (PreparedStatement ps = connection.prepareStatement(TeamSQL.FIND_ALL)) {
+            logger.debug("Executing SQL query:" +TeamSQL.FIND_ALL);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                teams.add(mapper.getEntity(rs));
+            }
+        } catch (SQLException e) {
+            logger.error("Occurred SQLException", e);
+            throw new RuntimeException(e);
+        }
+        return teams;
     }
 
     @Override

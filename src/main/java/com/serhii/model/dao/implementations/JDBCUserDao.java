@@ -70,6 +70,7 @@ public class JDBCUserDao implements UserDao {
             connection.setAutoCommit(false);
             createUser.setString(1, entity.getLogin());
             createUser.setString(2, entity.getPassword());
+            createUser.setInt(3, entity.getTeamId());
             logger.debug("Executing SQL query:" + UserSQL.SAVE + " for " + entity);
             createUser.executeUpdate();
             ResultSet rs = createUser.getGeneratedKeys();

@@ -1,3 +1,4 @@
+<%@ page import="com.serhii.model.entity.Team" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -34,6 +35,13 @@
                 <input type="password" name="password" required>
             </div>
         </label>
+
+        <span class="col-lg-3"><fmt:message key="team"/></span>
+        <select  id ="teamId" name ="teamId">
+            <c:forEach items="${teams}" var="team">
+                <option value = "${team.id}">${team.name}</option>
+            </c:forEach>
+        </select>
 
         <label class="col-lg-8"><input type="submit" value="<fmt:message key="register"/>"></label>
     </form>

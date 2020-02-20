@@ -8,7 +8,15 @@ public class User {
     private String login;
     private String password;
     private Set<Role> roles;
+    private int teamId;
 
+    public int getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
+    }
 
     public int getId() {
         return id;
@@ -48,6 +56,7 @@ public class User {
                 "id=" + id +
                 ", login=" + login +
                 ", roles:" + roles +
+                ", teamId:" + teamId +
                 '}';
     }
 
@@ -78,6 +87,11 @@ public class User {
 
         public Builder role(Set<Role> roles) {
             User.this.roles = new HashSet<>(roles);
+            return this;
+        }
+
+        public Builder teamId(int teamId){
+            User.this.teamId = teamId;
             return this;
         }
 

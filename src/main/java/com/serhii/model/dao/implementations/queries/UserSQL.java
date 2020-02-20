@@ -8,9 +8,9 @@ public interface UserSQL {
     String SAVE = "INSERT INTO `"
             + UserFields.TABLE_NAME + "`(`"
             + UserFields.LOGIN + "`, `"
-            + UserFields.PASSWORD
-
-            + "`) VALUES ((?), (?))";
+            + UserFields.PASSWORD +"`, `"
+            + UserFields.TEAM_ID
+            + "`) VALUES ((?), (?), (?))";
 
     String FIND_BY_LOGIN_AND_PASSWORD = "SELECT * FROM `"
             + UserFields.TABLE_NAME

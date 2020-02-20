@@ -5,4 +5,5 @@ public interface UserFields {
     String ID = "id";
     String PASSWORD = "password";
     String LOGIN = "login";
+    String TEAM_ID = "team_id";
 }

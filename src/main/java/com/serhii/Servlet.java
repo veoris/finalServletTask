@@ -7,6 +7,7 @@ import com.serhii.controller.command.user.LogOutCommand;
 import com.serhii.controller.routes.PageRoutes;
 import com.serhii.service.GameService;
 import com.serhii.service.QuestionService;
+import com.serhii.service.TeamService;
 import com.serhii.service.UserService;
 import org.apache.log4j.Logger;
 
@@ -28,7 +29,7 @@ public class Servlet extends javax.servlet.http.HttpServlet {
         servletConfig.getServletContext()
                 .setAttribute("loggedUsers", new HashSet<String>());
         commands.put("registration",
-                new RegistrationCommand());
+                new RegistrationCommand(new TeamService()));
         commands.put("login",
                 new LoginCommand());
         commands.put("logout",

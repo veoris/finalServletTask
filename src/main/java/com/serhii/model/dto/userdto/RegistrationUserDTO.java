@@ -8,6 +8,15 @@ public class RegistrationUserDTO {
     private String login;
     private String password;
     private Set<Role> roles;
+    private int teamId;
+
+    public int getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
+    }
 
     public Set<Role> getRoles() {
         return roles;
@@ -39,6 +48,7 @@ public class RegistrationUserDTO {
         return "RegistrationUserDTO{" +
                 "login='" + login + '\'' +
                 ", roles=" + roles +
+                ", team id=" + teamId +
                 '}';
     }
 }

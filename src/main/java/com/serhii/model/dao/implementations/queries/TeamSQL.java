@@ -9,6 +9,6 @@ public interface TeamSQL {
             + TeamFields.NAME + "`, `"
             + "`) VALUES (?)";
 
-    String FIND_BY_ID = "SELECT * FROM `" + TeamFields.TABLE_NAME
-            + "`WHERE`" + TeamFields.ID + "`=(?)";
+    String FIND_ALL = "SELECT * FROM servletdb.team;";
+
 }
