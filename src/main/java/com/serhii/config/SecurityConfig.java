@@ -36,6 +36,9 @@ public class SecurityConfig {
         ));
 
         securedPages.put(Role.ADMIN, Arrays.asList(
+                PageRoutes.MAIN,
+                PageRoutes.USER_PAGE,
+                PageRoutes.LOGOUT,
                 PageRoutes.ADMIN,
                 PageRoutes.ADD_QUESTION,
                 PageRoutes.CONFIRM,

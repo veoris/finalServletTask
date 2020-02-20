@@ -5,7 +5,9 @@ import com.serhii.model.entity.Question;
 import java.util.List;
 
 public interface QuestionDao extends CRUDDao<Question> {
-    Question findById(Long id);
+    void setAnswered(int id);
+
     List<Question> findAll();
+
     Question findForGame();
 }

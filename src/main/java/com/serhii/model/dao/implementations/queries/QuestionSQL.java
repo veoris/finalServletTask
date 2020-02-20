@@ -1,8 +1,6 @@
 package com.serhii.model.dao.implementations.queries;
 
 import com.serhii.model.dao.implementations.queries.fieldsdb.QuestionFields;
-import com.serhii.model.dao.implementations.queries.fieldsdb.UserFields;
-import com.serhii.model.dao.implementations.queries.fieldsdb.UserRolesFields;
 
 
 public interface QuestionSQL {
@@ -14,5 +12,7 @@ public interface QuestionSQL {
             + QuestionFields.ANSWER
             + "`) VALUES ((?), (?), (?), (?))";
     String FIND_ALL = "SELECT * FROM servletdb.question";
+    String SET_ANSWERED = "update question set answered=true where id=(?)";
+    String FIND_FOR_GAME = "select  * from question where answered=0 limit 1";
 
 }

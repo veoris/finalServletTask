@@ -10,5 +10,4 @@ public interface JSPRoutes {
     String NEW_QUESTION = "/WEB-INF/jsp/question.jsp";
     String GAME = "/WEB-INF/jsp/game.jsp";
     String CONFIRM = "/WEB-INF/jsp/confirm.jsp";
-
 }

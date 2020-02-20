@@ -8,7 +8,6 @@
 
 <w:wrapper>
     <h1 class="col-lg-12"><fmt:message key="main"/></h1>
-    <a href="${pageContext.request.contextPath}/app/question" class="col-lg-2 logo">Add Question</a>
-    <a href="${pageContext.request.contextPath}/app/game" class="col-lg-2 logo">Play game</a>
+
 
 </w:wrapper>

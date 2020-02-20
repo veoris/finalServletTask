@@ -20,25 +20,10 @@ public class JDBCQuestionDao implements QuestionDao {
         this.connection = connection;
     }
 
-    @Override
-    public Question findById(Long id) {
-        Mapper<Question> questionMapper = new QuestionMapper();
-        Question found = new Question();
-        try (PreparedStatement ps = connection.prepareStatement("select  * from questions where questions.id=?1")) {
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                found = questionMapper.getEntity(rs);
-            }
-        } catch (SQLException e) {
-            logger.error("SQLException occurred", e);
-            throw new RuntimeException(e);
-        }
-        return found;
-    }
 
     @Override
     public void create(Question entity) {
-        try(PreparedStatement ps = connection.prepareStatement(QuestionSQL.SAVE, Statement.RETURN_GENERATED_KEYS)){
+        try (PreparedStatement ps = connection.prepareStatement(QuestionSQL.SAVE, Statement.RETURN_GENERATED_KEYS)) {
             connection.setAutoCommit(false);
             ps.setString(1, entity.getTitle());
             ps.setString(2, entity.getDescription());
@@ -47,7 +32,7 @@ public class JDBCQuestionDao implements QuestionDao {
             logger.debug("Executing SQL query:" + QuestionSQL.SAVE + " for " + entity);
             ps.executeUpdate();
             connection.commit();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             logger.error("Occurred SQLException", e);
             throw new RuntimeException(e);
         }
@@ -79,7 +64,7 @@ public class JDBCQuestionDao implements QuestionDao {
     public Question findForGame() {
         Mapper<Question> questionMapper = new QuestionMapper();
         Question found = new Question();
-        try (PreparedStatement ps = connection.prepareStatement("select  * from question where answered=0 limit 1")) {
+        try (PreparedStatement ps = connection.prepareStatement(QuestionSQL.FIND_FOR_GAME)) {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 found = questionMapper.getEntity(rs);
@@ -89,6 +74,17 @@ public class JDBCQuestionDao implements QuestionDao {
             throw new RuntimeException(e);
         }
         return found;
+    }
+
+    @Override
+    public void setAnswered(int id) {
+        try (PreparedStatement ps = connection.prepareStatement(QuestionSQL.SET_ANSWERED)) {
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            logger.error("Occurred SQLException", e);
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

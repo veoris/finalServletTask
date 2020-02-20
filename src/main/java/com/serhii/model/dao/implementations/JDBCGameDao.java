@@ -41,13 +41,13 @@ public class JDBCGameDao implements GameDao {
 
     @Override
     public void setAnswer(String answer, Long id, Long questionId) {
-        try(PreparedStatement ps = connection.prepareStatement(GameSQL.SET_ANSWER)){
+        try (PreparedStatement ps = connection.prepareStatement(GameSQL.SET_ANSWER)) {
             ps.setString(1, answer);
-            ps.setLong(2,questionId);
+            ps.setLong(2, questionId);
             ps.setLong(3, id);
             ps.executeUpdate();
-            logger.info("Set current answer and question id" + answer + questionId +id);
-        }catch (SQLException e){
+            logger.info("Set current answer and question id" + answer + questionId + id);
+        } catch (SQLException e) {
             logger.error("Occurred SQLException", e);
             throw new RuntimeException(e);
         }
@@ -55,10 +55,10 @@ public class JDBCGameDao implements GameDao {
 
     @Override
     public void increaseTeamScore(int gameId) {
-        try(PreparedStatement ps = connection.prepareStatement(GameSQL.INCREASE_TEAM_SCORE)){
+        try (PreparedStatement ps = connection.prepareStatement(GameSQL.INCREASE_TEAM_SCORE)) {
             ps.setInt(1, gameId);
             ps.executeUpdate();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             logger.error("Occurred SQLException", e);
             throw new RuntimeException(e);
         }
@@ -66,10 +66,10 @@ public class JDBCGameDao implements GameDao {
 
     @Override
     public void increaseViewerScore(int gameId) {
-        try(PreparedStatement ps = connection.prepareStatement(GameSQL.INCREASE_VIEWER_SCORE)){
+        try (PreparedStatement ps = connection.prepareStatement(GameSQL.INCREASE_VIEWER_SCORE)) {
             ps.setInt(1, gameId);
             ps.executeUpdate();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             logger.error("Occurred SQLException", e);
             throw new RuntimeException(e);
         }
@@ -77,11 +77,11 @@ public class JDBCGameDao implements GameDao {
 
     @Override
     public void create(Game entity) {
-        try(PreparedStatement ps = connection.prepareStatement(GameSQL.SAVE)){
+        try (PreparedStatement ps = connection.prepareStatement(GameSQL.SAVE)) {
             ps.setLong(1, entity.getTeamId());
             logger.debug("Executing SQL query:" + GameSQL.SAVE + " for " + entity);
             ps.executeUpdate();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             logger.error("Occurred SQLException", e);
             throw new RuntimeException(e);
         }

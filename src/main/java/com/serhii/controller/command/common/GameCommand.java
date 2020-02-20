@@ -24,7 +24,7 @@ public class GameCommand implements Command {
     @Override
     public String execute(HttpServletRequest request) {
         request.setAttribute("question", questionService.findForGame());
-        request.setAttribute("id", gameService.getLastGameId(userService.getCurrentUser(request).getLogin()));//TODO
+        request.setAttribute("id", gameService.getLastGameId(userService.getCurrentUser(request).getLogin()));
         return JSPRoutes.GAME;
     }
 }

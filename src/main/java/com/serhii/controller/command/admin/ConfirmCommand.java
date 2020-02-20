@@ -8,10 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 
 public class ConfirmCommand implements Command {
     private GameService gameService;
-    public ConfirmCommand(GameService gameService){this.gameService=gameService;}
+
+    public ConfirmCommand(GameService gameService) {
+        this.gameService = gameService;
+    }
+
     @Override
     public String execute(HttpServletRequest request) {
-        request.setAttribute("game", gameService.findGameByID(106));//TODO
+        request.setAttribute("game", gameService.findGameByID(106));
         return JSPRoutes.CONFIRM;
     }
 }

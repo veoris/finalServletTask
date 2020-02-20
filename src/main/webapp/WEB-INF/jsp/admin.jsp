@@ -12,6 +12,7 @@
             padding: 10px;
         }
     </style>
-
+    <a href="${pageContext.request.contextPath}/app/question" class="col-lg-2 logo">Add Question</a>
+    <a href="${pageContext.request.contextPath}/app/game" class="col-lg-2 logo">Play game</a>
 
 </w:wrapper>

@@ -1,7 +1,5 @@
 package com.serhii.controller.routes;
 
-import java.security.SecureRandom;
-
 public interface PageRoutes {
     String REDIRECT = "redirect:";
     String MAIN = "/main";
@@ -16,8 +14,8 @@ public interface PageRoutes {
     String ADD_QUESTION = "/addquestion";
     String QUESTION = "/question";
     String GAME = "/game";
-    String ANSWER ="/answer";
-    String CONFIRM ="/confirm";
+    String ANSWER = "/answer";
+    String CONFIRM = "/confirm";
     String RIGHT = "/right";
     String WRONG = "/wrong";
 

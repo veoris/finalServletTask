@@ -31,33 +31,33 @@ public class GameService {
     }
 
     public void saveGame(Game game) {
-        try(GameDao dao = daoFactory.createGameDao()) {
+        try (GameDao dao = daoFactory.createGameDao()) {
             dao.create(game);
         }
         logger.debug("Saved new game " + game);
     }
 
     public void setAnswer(String answer, Long gameId, Long questionId) {
-        try(GameDao dao = daoFactory.createGameDao()) {
+        try (GameDao dao = daoFactory.createGameDao()) {
             dao.setAnswer(answer, questionId, gameId);
         }
         logger.debug("Saved new game " + answer);
     }
 
     public void increaseTeamScore(int gameId) {
-        try(GameDao dao = daoFactory.createGameDao()) {
+        try (GameDao dao = daoFactory.createGameDao()) {
             dao.increaseTeamScore(gameId);
         }
     }
 
     public void increaseViewerScore(int gameId) {
-        try(GameDao dao = daoFactory.createGameDao()) {
+        try (GameDao dao = daoFactory.createGameDao()) {
             dao.increaseViewerScore(gameId);
         }
     }
 
-    public int getLastGameId(String login){
-        try(GameDao dao = daoFactory.createGameDao()) {
+    public int getLastGameId(String login) {
+        try (GameDao dao = daoFactory.createGameDao()) {
             return dao.getLastGameId(login);
         }
     }

@@ -48,13 +48,13 @@ public class Servlet extends javax.servlet.http.HttpServlet {
         commands.put("game",
                 new GameCommand(new QuestionService(), new GameService(), new UserService()));
         commands.put("answer",
-                new AnswerCommand(new GameService()));
+                new AnswerCommand(new GameService(), new QuestionService()));
         commands.put("confirm",
                 new ConfirmCommand(new GameService()));
         commands.put("right",
-                new RightCommand(new GameService()));
+                new RightCommand(new GameService(), new UserService()));
         commands.put("wrong",
-                new WrongCommand(new GameService()));
+                new WrongCommand(new GameService(), new UserService()));
 
 
     }

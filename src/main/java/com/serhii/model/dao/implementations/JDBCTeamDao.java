@@ -1,13 +1,9 @@
 package com.serhii.model.dao.implementations;
 
-import com.serhii.model.dao.implementations.queries.GameSQL;
 import com.serhii.model.dao.implementations.queries.TeamSQL;
-import com.serhii.model.dao.interfaces.GameDao;
 import com.serhii.model.dao.interfaces.TeamDao;
 import com.serhii.model.dao.mapper.Mapper;
-import com.serhii.model.dao.mapper.implementations.GameMapper;
 import com.serhii.model.dao.mapper.implementations.TeamMapper;
-import com.serhii.model.entity.Game;
 import com.serhii.model.entity.Team;
 import org.apache.log4j.Logger;
 
@@ -44,13 +40,13 @@ public class JDBCTeamDao implements TeamDao {
 
     @Override
     public void create(Team entity) {
-        try(PreparedStatement ps = connection.prepareStatement(TeamSQL.SAVE)){
+        try (PreparedStatement ps = connection.prepareStatement(TeamSQL.SAVE)) {
             connection.setAutoCommit(false);
             ps.setString(1, entity.getName());
             logger.debug("Executing SQL query:" + TeamSQL.SAVE + " for " + entity);
             ps.executeUpdate();
             connection.commit();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             logger.error("Occurred SQLException", e);
             throw new RuntimeException(e);
         }
